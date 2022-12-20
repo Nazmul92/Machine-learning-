@@ -1,5 +1,5 @@
 ## Machine learning based credit card fraud detection using data resampling.
-In  this project, I focused on different resampling techniques to balance the imbalance data. After that I evaluated different machine learning algorithms to deect fradualant transaction.
+In this project, I focused on different resampling techniques to balance the imbalanced data. After that, I evaluated different machine learning algorithms to detect fraudulent transactions.
 ## Problem definition
 It is difficult to design machine learning (ML)-based fraudulent credit card detection models. Due to the extremely imbalanced class distributions and to improve accuracy, models analyze the data and always predict the majority class.
 ## Objectives
