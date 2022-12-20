@@ -43,4 +43,57 @@ Check the dimension of the subset
 library(dplyr)
 creditcard<-data %>% sample_frac(0.1)
 ```
+## Data resampling techniques
+Four data resampling techniques ( random under-sampling, random over-sampling, SMOTE, and ROSE is employed in this project.
+## Random under sampling
+>> Random undersampling randomly selects and removes samples from the majority class.
+>> This method discards enormous amounts of data, which is quite troublesome because it can make it more difficult to learn the decision border between the minority and majority samples, which can lead to a reduction in classification performance.
+```bash
+library(caret)
+down_train<-downSample(x=train_data, 
+y = as.factor(train_data$Class))
+table(down_train$Class)
+ 0  1 
+42 42 
 ```
+## Random over-sampling
+>>Random oversampling selects a random sample from the minority class and adds multiple copies of this instance to the training data.
+>>The random oversampling may increase the likelihood of overfitting occurring since it makes exact copies of the minority class samples.
+```bash
+library(caret)
+up_train<-upSample(x=train_data,
+y = as.factor(train_data$Class))
+table(up_train$Class)
+    0     1 
+22743 22743 
+```
+## SMOTE (Synthetic Minority Oversampling Technique) 
+>>SMOTE is a type of oversampling that works differently from normal oversampling.
+It generates synthetic data using a k-nearest neighbor algorithm. 
+It begins by selecting random data from the minority class, and then the k-nearest neighbors are determined for this data point.
+It computes the vector between the current data point and the selectedneighbor using one of those neighbors.
+A random number between 0 and 1 is multipliedwith the vector, and this is added to the current data point.
+```bash
+library(smotefamily)
+smote_train<-SMOTE(train_data[,-30], train_data$Class, K=10)
+smote_train<-smote_train$data
+table(smote_train$class)
+    0     1 
+22745 22720 
+```
+## ROSE (Random Over-Sampling Examples) 
+>>ROSE aids the task of binary classification in the presence of minority classes.
+It produces a synthetic, possibly balanced, sample of data simulated according to a smoothed bootstrapping approach.
+```bash
+library(ROSE)
+rose_train<-ROSE(Class~., train_data)
+rose_train<-rose_train$data
+table(rose_train$Class)
+    0     1 
+11466 11319
+```
+## ML algorithms evaluation
+Four different ML algorithms (logistic regression, decision tree, k-nearest neighbor, and naive bayes) are employed in this project. Each ML algorithm is evaluated for imbalanced data and four resampled data based on sensitivity, specificity, recall, the f1-score, and the ROC curve.
+
+
+
