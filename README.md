@@ -44,7 +44,7 @@ library(dplyr)
 creditcard<-data %>% sample_frac(0.1)
 ```
 ## Data resampling techniques
-Four data resampling techniques ( random under-sampling, random over-sampling, SMOTE, and ROSE is employed in this project.
+Four data resampling techniques (random undersampling, random oversampling, SMOTE, and ROSE) are employed in this project.
 ## Random under sampling
 >> Random undersampling randomly selects and removes samples from the majority class.
 >> This method discards enormous amounts of data, which is quite troublesome because it can make it more difficult to learn the decision border between the minority and majority samples, which can lead to a reduction in classification performance.
