@@ -7,7 +7,7 @@ For balancing the data, I have concentrated on several data resampling technique
 ## Dataset
 In this project 
 [creditcard.csv](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud)
-is used.
+ dataset is used.
 
 ## Exploratory data analysis (EDA)
 
